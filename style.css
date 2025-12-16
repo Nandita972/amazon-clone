@@ -1,0 +1,751 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Navbar */
+.navbar {
+    height: 60px;
+    background-color: #0f1111;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.nav-logo {
+    height: 50px;
+    width: 100px;
+}
+
+.logo {
+    background-image: url('Amazon-Logo.png'); /* Amazon Logo Placeholder */
+    background-size: cover;
+    height: 29px;
+    width: 107%;
+    margin-top: 5px; /* Adjust alignment */
+}
+
+.border {
+    border: 1.5px solid transparent;
+    padding: 5px;
+    border-radius: 2px;
+}
+
+.border:hover {
+    border: 1.5px solid white;
+    cursor: pointer;
+}
+
+/* Address Section */
+.add-first {
+    color: #cccccc;
+    font-size: 0.85rem;
+    margin-left: 15px;
+}
+
+.add-second {
+    font-size: 1rem;
+    margin-left: 3px;
+    font-weight: 700;
+}
+
+.add-icon {
+    display: flex;
+    align-items: center;
+}
+
+/* Search Bar */
+.nav-search {
+    display: flex;
+    justify-content: space-evenly;
+    width: 900px;
+    height: 40px;
+    border-radius: 4px;
+}
+
+.search-select {
+    background-color: #f3f3f3;
+    width: 50px;
+    text-align: center;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border: none;
+    cursor: pointer;
+}
+
+.search-input {
+    width: 100%;
+    font-size: 1rem;
+    border: none;
+    padding-left: 10px;
+    outline: none; /* Removes default blue outline */
+}
+
+.search-icon {
+    width: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    background-color: #febd68;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    color: #0f1111;
+    cursor: pointer;
+}
+
+.search-icon:hover {
+    background-color: #f3a847;
+}
+
+/* Size of "Hello, sign in" */
+.nav-signin p span {
+    font-size: 13.6px;
+}
+
+/* Size of "Account & Lists" */
+.nav-second {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.nav-second i {
+    font-size: 0.7rem;    /* Makes the arrow slightly smaller than text */
+    margin-left: 5px;     /* specific gap between "Lists" and the arrow */
+    color: #a7acb2;     /* Light grey color for the icon */
+}
+
+/* Size of "Returns" */
+.nav-return p span {
+    font-size: 13.6px;
+}
+
+/* Size of "& Orders" */
+.nav-return .nav-second {
+    font-size: 1rem;
+}
+
+/* Dropdown Logic */
+/* 1. Make the parent relative so the child can be positioned relative to it */
+.nav-signin {
+    position: relative; 
+}
+
+/* 2. The Dropdown Box (Hidden by default) */
+.dropdown-menu {
+    display: none; /* Hidden initially */
+    position: absolute;
+    top: 50px; /* Distance from top of navbar */
+    right: -70px; /* Adjust left/right alignment */
+    width: 500px;
+    background-color: white;
+    color: black;
+    border-radius: 4px;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+    z-index: 1000; /* Ensures it sits ON TOP of the hero image */
+    padding: 15px;
+    cursor: default; /* Prevents pointer cursor on the white space */
+}
+
+/* 3. The Triangle/Arrow at the top */
+.dropdown-menu::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    right: 85px; /* Adjust to align with the text above */
+    border-width: 0 10px 10px 10px;
+    border-style: solid;
+    border-color: transparent transparent white transparent;
+}
+
+/* 4. Show Menu on Hover */
+.nav-signin:hover .dropdown-menu {
+    display: block;
+}
+
+/* Dropdown Content Styling */
+/* Sign In Button Area */
+.signin-btn-container {
+    text-align: center;
+    border-bottom: 1px solid #eeeeee;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.signin-btn {
+    background-color: #ffd814;
+    border: 1px solid #fcd200;
+    border-radius: 4px;
+    padding: 8px 50px; /* Wide button */
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(213,217,217,.5);
+}
+
+.signin-btn:hover {
+    background-color: #f7ca00;
+}
+
+.new-customer {
+    font-size: 0.7rem;
+    margin-top: 5px;
+    color: #333;
+}
+
+.new-customer a {
+    color: #007185;
+    text-decoration: none;
+}
+
+.new-customer a:hover {
+    text-decoration: underline;
+    color: #c7511f;
+}
+
+/* Columns (Flexbox) */
+.dropdown-content {
+    display: flex;
+}
+
+.dropdown-col {
+    flex: 1; /* Takes up equal space */
+    padding-left: 15px;
+}
+
+.border-right {
+    border-right: 1px solid #eeeeee;
+    margin-right: 15px;
+}
+
+.dropdown-col h3 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.dropdown-col a {
+    display: block; /* Makes links sit on their own lines */
+    font-size: 0.8rem;
+    color: #444;
+    text-decoration: none;
+    margin-bottom: 6px;
+}
+
+.dropdown-col a:hover {
+    color: #c7511f;
+    text-decoration: underline;
+}
+
+.nav-cart i {
+    font-size: 30px;
+}
+
+.nav-cart {
+    font-size: 0.85rem;
+    font-weight: 700;
+    display: flex;
+    align-items: flex-end; /* Align "Cart" text to bottom of icon */
+}
+
+/* Sub Panel */
+.panel {
+    height: 40px;
+    background-color: #222f3d;
+    display: flex;
+    color: white;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.panel-all {
+    display: flex;
+    font-weight: 700;
+    margin-left: 20px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.panel-all i {
+    margin-right: 5px;
+    font-size: 1.1rem;
+}
+
+.panel-ops {
+    width: 70%;
+    font-size: 0.85rem;
+    display: flex;
+    justify-content: flex-start; /* Spread items nicely */
+    gap: 20px;
+}
+
+.panel-ops p {
+    cursor: pointer;
+}
+.panel-ops p:hover {
+    text-decoration: underline; /* Standard web behavior */
+}
+
+.panel-deals {
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+/* HERO SLIDER STYLES */
+.hero-section {
+    width: 100%;
+    height: 350px;       /* Fixed height */
+    overflow: hidden;    /* Hides the images that are off-screen */
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.hero-slider {
+    display: flex;       /* Puts images side-by-side in a long row */
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease-in-out; /* The Smooth Slide Animation */
+}
+
+.hero-slider img {
+    width: 100%;         /* Each image takes full screen width */
+    height: 100%;
+    object-fit: cover;   /* Ensures image covers area without stretching */
+    flex-shrink: 0;      /* Prevents images from getting squished */
+}
+
+/* HERO BUTTONS */
+.hero-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); /* Centers vertically */
+    background: transparent;
+    border: none;
+    font-size: 2.5rem;
+    color: white; /* White arrows */
+    cursor: pointer;
+    padding: 20px;
+    z-index: 10; /* Sits on top of images */
+    opacity: 0; /* Hide by default */
+    transition: opacity 0.3s ease-in-out; /* Smooth fade effect */
+}
+
+/* Show buttons when hovering over the Hero Section */
+.hero-section:hover .hero-btn {
+    opacity: 0.5; /* Semi-visible on hover */
+}
+
+/* Specific Positions */
+.prev-btn {
+    left: 0;
+}
+
+.next-btn {
+    right: 0;
+}
+
+/* Remove the focused outline box (blue border) when clicking */
+.hero-btn:focus {
+    outline: none;
+    border: 2px solid white; /* Adds a white box for accessibility */
+    border-radius: 4px;
+}
+
+/* Holiday Carousel Container */
+.holiday-section {
+    background-color: white;
+    padding: 20px;            /* Adds more padding around everything */
+    margin: 20px auto;        /* Adds space outside the white box */
+    position: relative;       /* Needed for button positioning */
+}
+
+/* Header Styling */
+.holiday-header {
+    display: flex;            /* Puts text on same line */
+    align-items: baseline;    /* Aligns "Explore now" with the bottom of the text */
+    margin-bottom: 20px;      /* Space below header */
+    padding-left: 20px;       /* Extra left indentation for the title */
+}
+
+.holiday-header h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-right: 15px;       /* Space between title and link */
+    color: #0f1111;
+}
+
+.holiday-header a {
+    color: #007185;
+    text-decoration: none;    /* Removes underline from "Explore now" */
+    font-size: 0.9rem;
+}
+
+.holiday-header a:hover {
+    text-decoration: underline; /* Only underline on hover */
+    color: #c7511f;
+}
+
+/* Carousel Layout */
+.carousel-wrapper {
+    position: relative;       /* Anchors the absolute buttons */
+}
+
+/* Carousel Container */
+.carousel-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 30px;
+    padding: 10px 30px;
+    scrollbar-width: none; /* FIREFOX: Hide by default */
+}
+
+/* FIREFOX: Show thin scrollbar on HOVER */
+.carousel-container:hover {
+    scrollbar-width: thin;
+}
+
+/* WEBKIT (Chrome, Edge, Safari) */
+/* 1. Default: Hide completely */
+.carousel-container::-webkit-scrollbar {
+    display: none;
+    height: 8px; /* Define height for when it appears */
+}
+
+/* 2. On Hover: Show it */
+.carousel-container:hover::-webkit-scrollbar {
+    display: block;
+}
+
+/* 3. Style the Scrollbar */
+.carousel-container::-webkit-scrollbar-track {
+    background: transparent; 
+}
+
+.carousel-container::-webkit-scrollbar-thumb {
+    background-color: #fff; /* Grey color */
+    border-radius: 10px;    /* Round edges */
+}
+
+.carousel-container::-webkit-scrollbar-thumb:hover {
+    background-color: #ddd; /* Darker grey when you grab it */
+}
+
+/* Items */
+.carousel-item {
+    flex: 0 0 auto;
+    text-align: center;
+    cursor: pointer;
+}
+
+.circle-img {
+    width: 200px;
+    height: 200px;
+    background-color: #f0f2f2;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 10px;
+}
+
+.carousel-item p {
+    font-size: 0.9rem;
+    color: #0f1111;
+    font-weight: 500;
+}
+
+/* Button Styling */
+.scroll-btn {
+    background-color: white;
+    border: 1px solid #ccc;     /* Subtle border */
+    border-radius: 3px;           
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    height: 100px;
+    width: 45px;
+    font-size: 1.2rem;
+    color: #333;
+    cursor: pointer;
+    z-index: 10;
+    
+    /* Perfect Vertical Alignment */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    
+    /* Center the icon inside the button */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* HIDE BUTTON BY DEFAULT: */
+    opacity: 0;               
+    visibility: hidden;        /* Prevents accidental clicking while hidden */
+    transition: all 0.3s ease; /* Adds a smooth fade-in effect */
+}
+
+.scroll-btn:hover {
+    background-color: #f7fafa; /* Slight grey on hover */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.carousel-wrapper:hover .scroll-btn {
+    opacity: 1;
+    visibility: visible;
+}
+
+.left-btn {
+    left: 0;
+}
+
+.right-btn {
+    right: 0;
+}
+
+/* Shop Section (Grid) */
+.shop-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    background-color: #e2e7e6; /* Light gray bg */
+    padding-bottom: 20px;
+}
+
+.box {
+    height: 400px;
+    width: 23%; /* Creates 4 columns */
+    background-color: white;
+    padding: 20px 0px 15px 0px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Space out title, image, link */
+    z-index: 1; /* Makes it pop slightly */
+}
+
+.box-content {
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.box-content h2 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.box-img {
+    height: 300px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.box-content a {
+    color: #007185;
+    text-decoration: none;
+    font-size: 0.85rem;
+}
+
+/* Footer */
+footer {
+    margin-top: 15px;
+}
+
+.foot-panel1 {
+    background-color: #37475a;
+    color: white;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.foot-panel1:hover {
+    background-color: #485769;
+}
+
+.foot-panel2 {
+    background-color: #232f3e;
+    color: white;
+    height: 300px;
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 50px; /* Padding for top of list */
+}
+
+ul {
+    margin-top: 20px;
+}
+
+ul p {
+    font-weight: 700;
+    margin-bottom: 10px; /* Space between title and links */
+}
+
+ul a {
+    display: block;
+    font-size: 0.85rem;
+    margin-top: 10px;
+    color: #dddddd;
+    text-decoration: none;
+}
+
+ul a:hover {
+    text-decoration: underline;
+}
+
+.foot-panel3 {
+    background-color: #232f3e;
+    color: white;
+    border-top: 0.5px solid white;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.foot-panel3 .logo {
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg');
+    background-size: cover;
+    height: 30px; /* Reduced height inside footer */
+    width: 100px;
+    filter: invert(1); /* Makes logo white */
+}
+
+.foot-panel4 {
+    background-color: #131a22;
+    color: white;
+    height: 80px;
+    font-size: 0.7rem;
+    text-align: center;
+    padding-top: 25px; /* Vertical center */
+}
+
+.pages {
+    margin-bottom: 5px;
+}
+
+.pages a {
+    color: white;
+    text-decoration: none;
+    margin-right: 15px;
+}
+
+.copyright {
+    margin-top: 5px;
+}
+
+/* MEDIA QUERIES (Responsive Design) */
+/* MOBILE RESPONSIVE FIXES (Max-Width 600px) */
+
+@media (max-width: 600px) {
+
+    /* 1. NAVBAR & SEARCH */
+    .navbar {
+        display: flex;
+        justify-content: space-between; /* Pushes items to edges */
+        align-items: center;
+        height: auto;
+        padding: 10px 15px; /* Add some side padding */
+        flex-wrap: wrap;
+    }
+
+    /* Hide strictly non-essential items */
+    .nav-address, 
+    .nav-return, 
+    .nav-signin { 
+        display: none; 
+    }
+
+    /* Force Logo to Left */
+    .nav-logo {
+        order: 1;
+        margin-left: 0;
+    }
+
+    /* Force Cart to Right */
+    .nav-cart {
+        order: 2;
+    }
+
+    /* The Search Bar - SHOW IT on a new line */
+    .nav-search {
+        display: flex;         /* Make sure it is visible */
+        width: 100%;           /* Force it to take full width */
+        margin-top: 10px;      /* Add space between logo and search */
+        order: 3;              /* specific CSS trick to force it to the bottom */
+    }
+
+    /* 2. HERO SECTION */
+    /* Reduced height on phones */
+    .hero-section {
+        height: 200px; 
+    }
+
+    /* 3. SHOP SECTION */
+    .shop-section {
+        justify-content: center; /* Center the cards */
+    }
+
+    .box {
+        width: 96%;            /* 96% Width forces 1 column (stacking) */
+        margin: 10px auto;     /* Centers the box */
+        height: auto;          /* Let height adjust to content */
+    }
+
+    /* 4. OTHER MOBILE ADJUSTMENTS */
+    .panel {
+        overflow-x: auto;
+        white-space: nowrap;
+        justify-content: flex-start;
+        padding-left: 10px;
+    }
+    
+    .panel-ops {
+        width: auto;
+        gap: 15px;
+    }
+    
+    .panel-deals {
+        display: none;
+    }
+
+    .hero-section {
+        height: 200px;
+    }
+    
+    .hero-msg {
+        display: none;
+    }
+
+    /* Footer Stacking */
+    .foot-panel2 {
+        height: auto;
+        flex-direction: column;
+        padding: 20px 0;
+    }
+
+    .foot-panel2 ul {
+        margin-top: 10px;
+        text-align: center;
+        padding-left: 0;
+    }
+
+    .foot-panel3, .foot-panel4, .pages {
+        flex-direction: column;
+        height: auto;
+        gap: 10px;
+    }
+}
